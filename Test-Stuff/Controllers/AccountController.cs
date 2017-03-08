@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Test_Stuff.Models;
+using Test_Stuff.ViewModels;
 
 namespace Test_Stuff.Controllers
 {
