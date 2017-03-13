@@ -1,3 +1,4 @@
+using System.Data.Entity;
 using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace Test_Stuff.Models
@@ -8,6 +9,11 @@ namespace Test_Stuff.Models
             : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
+        
+        public DbSet<Newsletter> Newsletters { get; set; }
+        public DbSet<Subscriber> Subscribers { get; set; }
+        public DbSet<SubscriberNewsletter> NewsletterSubscribers { get; set; }
+        //public DbSet<SendTipMail> SendTipMails { get; set; }
 
         public static ApplicationDbContext Create()
         {

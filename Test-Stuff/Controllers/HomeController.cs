@@ -3,6 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.Ajax.Utilities;
+using Test_Stuff.Models;
+using Test_Stuff.ViewModels;
+using Recaptcha.Web;
+using hbehr.recaptcha;
+using hbehr.recaptcha.Exceptions;
 
 namespace Test_Stuff.Controllers
 {
@@ -26,5 +32,29 @@ namespace Test_Stuff.Controllers
 
             return View();
         }
+
+        #region Newsletter
+
+        [HttpPost]
+        public ActionResult TipMail(MailViewModel modelEmail)
+        {
+            string userResponse = HttpContext.Request.Params["g-recaptcha-response"];
+            bool validCaptcha = ReCaptcha.ValidateCaptcha(userResponse);
+            if (validCaptcha)
+            {
+                // Real User, validated !
+                SendTipMail.SendEmails(string.Empty, modelEmail.Reciever, string.Empty, modelEmail.Name, modelEmail.Message);
+
+                return View();
+            }
+            else
+            {
+                // Not validated !
+                return View();
+            }
+
+        }
+
+        #endregion
     }
 }
