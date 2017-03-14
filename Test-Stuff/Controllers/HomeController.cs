@@ -14,9 +14,20 @@ namespace Test_Stuff.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly ApplicationDbContext _context;
+        public HomeController()
+        {
+            _context = new ApplicationDbContext();
+        }
         public ActionResult Index()
         {
             return View();
+        }
+
+        public ActionResult _Navbar()
+        {
+            ViewBag.Menu = _context.Menus.ToList();
+            return PartialView();
         }
 
         public ActionResult About()
@@ -56,5 +67,15 @@ namespace Test_Stuff.Controllers
         }
 
         #endregion
+
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                _context.Dispose();
+            }
+            base.Dispose(disposing);
+        }
     }
 }

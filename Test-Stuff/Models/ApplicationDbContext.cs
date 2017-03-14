@@ -9,7 +9,8 @@ namespace Test_Stuff.Models
             : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
-        
+
+        public DbSet<Menu> Menus { get; set; }
         public DbSet<Newsletter> Newsletters { get; set; }
         public DbSet<Subscriber> Subscribers { get; set; }
         public DbSet<SubscriberNewsletter> NewsletterSubscribers { get; set; }

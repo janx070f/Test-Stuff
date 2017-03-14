@@ -213,6 +213,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Menu.cs" />
     <Compile Include="Models\Newsletter.cs" />
     <Compile Include="Models\SendTipMail.cs" />
     <Compile Include="Models\SubscribeNewsletter.cs" />
