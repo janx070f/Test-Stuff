@@ -213,6 +213,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\BlogComment.cs" />
+    <Compile Include="Models\BlogPost.cs" />
     <Compile Include="Models\Menu.cs" />
     <Compile Include="Models\Newsletter.cs" />
     <Compile Include="Models\SendTipMail.cs" />
@@ -306,6 +308,7 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Newsletter\EmailForm.cshtml" />
+    <Content Include="Views\Home\BlogIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

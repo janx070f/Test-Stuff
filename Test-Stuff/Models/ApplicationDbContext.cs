@@ -14,6 +14,9 @@ namespace Test_Stuff.Models
         public DbSet<Newsletter> Newsletters { get; set; }
         public DbSet<Subscriber> Subscribers { get; set; }
         public DbSet<SubscriberNewsletter> NewsletterSubscribers { get; set; }
+        public DbSet<BlogPost> BlogPosts { get; set; }
+        public DbSet<BlogComment> BlogComments { get; set; }
+
         //public DbSet<SendTipMail> SendTipMails { get; set; }
 
         public static ApplicationDbContext Create()
