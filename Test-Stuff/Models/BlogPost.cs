@@ -15,8 +15,8 @@ namespace Test_Stuff.Models
         [Display(Name = "Titel")]
         [Required]
         public string Title { get; set; }
-        [Display(Name = "Dato")]
 
+        [Display(Name = "Dato")]
         public DateTime Date { get; set; }
 
         [Display(Name = "Indhold")]
@@ -24,7 +24,7 @@ namespace Test_Stuff.Models
         [AllowHtml]
         [DataType(DataType.MultilineText)]
         public string Content { get; set; }
-        public int AdminId { get; set; }
+        //public int AdminId { get; set; }
         public virtual List<BlogComment> Comments { get; set; }
 
         [Display(Name = "Forfatter")]
