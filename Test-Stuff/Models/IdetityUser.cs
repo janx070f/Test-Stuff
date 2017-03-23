@@ -3,6 +3,11 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.Owin.Security.Cookies;
+using Microsoft.Owin;
+using Microsoft.AspNet.Identity.Owin;
+using System;
+using Owin;
 
 namespace Test_Stuff.Models
 {
@@ -16,5 +21,6 @@ namespace Test_Stuff.Models
             // Add custom user claims here
             return userIdentity;
         }
+       
     }
 }

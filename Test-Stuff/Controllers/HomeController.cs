@@ -14,6 +14,7 @@ using hbehr.recaptcha.Exceptions;
 
 namespace Test_Stuff.Controllers
 {
+    [RequireHttps]
     public class HomeController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -79,73 +80,73 @@ namespace Test_Stuff.Controllers
 
         // Blog/Create
       
-        public ActionResult Create()
-        {
-            return View();
-        }
+        //public ActionResult Create()
+        //{
+        //    return View();
+        //}
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Date,Content,AdminId, Title")] BlogPost blogPost)
-        {
-            if (ModelState.IsValid)
-            {
-                blogPost.PostType = BlogPost.PostTypes.BlogPost;
-                blogPost.Approved = true;
-                blogPost.Date = DateTime.Now;
-                blogPost.AdminId = 2;
-                _context.BlogPosts.Add(blogPost);
-                _context.SaveChanges();
-                return RedirectToAction("BlogIndex");
-            }
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Create([Bind(Include = "Id,Date,Content,AdminId, Title")] BlogPost blogPost)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        blogPost.PostType = BlogPost.PostTypes.BlogPost;
+        //        blogPost.Approved = true;
+        //        blogPost.Date = DateTime.Now;
+        //        blogPost.AdminId = 2;
+        //        _context.BlogPosts.Add(blogPost);
+        //        _context.SaveChanges();
+        //        return RedirectToAction("BlogIndex");
+        //    }
 
-            return View(blogPost);
-        }
+        //    return View(blogPost);
+        //}
 
-        // Blog/Edit
+        //// Blog/Edit
         
-        public ActionResult Edit(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            BlogPost blogPost = _context.BlogPosts.Find(id);
-            if (blogPost == null)
-            {
-                return HttpNotFound();
-            }
-            return View(blogPost);
-        }
+        //public ActionResult Edit(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    BlogPost blogPost = _context.BlogPosts.Find(id);
+        //    if (blogPost == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    return View(blogPost);
+        //}
         
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Date,Content,AdminId")] BlogPost blogPost)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.Entry(blogPost).State = EntityState.Modified;
-                _context.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(blogPost);
-        }
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Edit([Bind(Include = "Id,Date,Content,AdminId")] BlogPost blogPost)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        _context.Entry(blogPost).State = EntityState.Modified;
+        //        _context.SaveChanges();
+        //        return RedirectToAction("Index");
+        //    }
+        //    return View(blogPost);
+        //}
 
-        // Blog/Delete
+        //// Blog/Delete
 
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            BlogPost blogPost = _context.BlogPosts.Find(id);
-            if (blogPost == null)
-            {
-                return HttpNotFound();
-            }
-            return View(blogPost);
-        }
+        //public ActionResult Delete(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    BlogPost blogPost = _context.BlogPosts.Find(id);
+        //    if (blogPost == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    return View(blogPost);
+        //}
 
       
         [HttpPost, ActionName("Delete")]

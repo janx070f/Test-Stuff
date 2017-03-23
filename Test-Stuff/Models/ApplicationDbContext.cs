@@ -1,5 +1,11 @@
+using System;
 using System.Data.Entity;
+using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.AspNet.Identity.Owin;
+using Microsoft.Owin;
+using Microsoft.Owin.Security.Cookies;
+using Owin;
 
 namespace Test_Stuff.Models
 {
@@ -23,5 +29,7 @@ namespace Test_Stuff.Models
         {
             return new ApplicationDbContext();
         }
+        
+
     }
 }
